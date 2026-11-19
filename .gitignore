@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+all_keys.json
+config.json
+*.db
+*.db-wal
+*.db-shm
+output/
+wcdb_dumps/
+path_dumps/
+.env

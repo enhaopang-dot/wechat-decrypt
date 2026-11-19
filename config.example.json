@@ -1,0 +1,44 @@
+{
+    "_comment_paths": "── 微信数据目录：Windows 形如 D:\\xwechat_files\\<wxid>\\db_storage；macOS 形如 ~/Library/Containers/com.tencent.xinWeChat/Data/.../db_storage。留空则自动探测 ──",
+    "db_dir": "",
+    "keys_file": "all_keys.json",
+    "decrypted_dir": "decrypted",
+    "wechat_process": "Weixin.exe",
+
+    "_comment_passphrase": "── 微信 4.1.x 使用 passphrase 模式：先用 wx_key 等工具提取 64 位 hex passphrase，填到这里，再运行 python main.py derive-keys ──",
+    "passphrase": "",
+
+    "_comment_wxwork": "── 企业微信（可选，不用可全部留空）──",
+    "wxwork_db_dir": "",
+    "wxwork_keys_file": "wxwork_keys.json",
+    "wxwork_decrypted_dir": "wxwork_decrypted",
+    "wxwork_export_dir": "wxwork_export",
+    "wxwork_process": "WXWork.exe",
+
+    "_comment_output": "── 统一输出根目录(项目外)：每个聊天一个文件夹，内含 chat.json/images/audio/files ──",
+    "output_root": "~/WeChatExport",
+
+    "_comment_transcription": "── 语音转文字 (whisper_cpp / local / openai / remote_asr)；不需要转写可设为 none ──",
+    "transcription_backend": "whisper_cpp",
+    "whisper_cpp_language": "zh",
+    "whisper_cpp_model": "",
+    "_comment_openai": "transcription_backend=openai 时填；密钥请勿提交进版本库",
+    "openai_api_key": "",
+    "_comment_remote_asr": "remote_asr = 自建转写服务(POST {url}/api/v1/asr)；url 空则不启用，请求失败自动回退本地 whisper",
+    "remote_asr_url": "",
+    "remote_asr_timeout": 30,
+
+    "_comment_image_describe": "── 图片/视频 AI 识别属可选扩展，本版本未包含实现；保持 none 即可 ──",
+    "image_describe_backend": "none",
+
+    "_comment_realtime_db": "── 实时消息落库：可选旁路缓存，本版本仅提供接口占位(见 realtime_db.py)。enabled=false 时 monitor_web 完全不碰 Postgres ──",
+    "realtime_db": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 5432,
+        "dbname": "wechat_realtime",
+        "user": "wechat",
+        "password": "",
+        "pool_max": 4
+    }
+}
